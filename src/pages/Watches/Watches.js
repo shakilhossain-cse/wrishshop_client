@@ -1,17 +1,16 @@
-import Button from "@restart/ui/esm/Button";
-import React from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import Button from '@restart/ui/esm/Button'
+import React from 'react'
+import { Container, Row, Col, Card } from 'react-bootstrap'
 
-const Products = () => {
-  return (
-    <Container>
+const Watches = () => {
+    return (
+        <Container>
           <h5 className="text-center display-5 my-5">Watch Collection</h5>
           <div className=" p-4 text-end">
-         <Button className=" btn btn-dark">Explore All Watch</Button>
          </div>
       <Row xs={1} sm={2} md={3} className="g-4">
           
-        {Array.from({ length: 6 }).map((_, idx) => (
+        {Array.from({ length: 16 }).map((_, idx) => (
           <Col>
             <Card className="border-0">
               <Card.Img
@@ -32,7 +31,7 @@ const Products = () => {
           </Row>
         
     </Container>
-  );
-};
+    )
+}
 
-export default Products;
+export default Watches
