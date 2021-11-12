@@ -1,13 +1,14 @@
 import Button from "@restart/ui/esm/Button";
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
     <Container>
           <h5 className="text-center display-5 my-5">Watch Collection</h5>
           <div className=" p-4 text-end">
-         <Button className=" btn btn-dark">Explore All Watch</Button>
+        <Link to="/watches"className="btn btn-dark">Explore All Watch</Link>
          </div>
       <Row xs={1} sm={2} md={3} className="g-4">
           

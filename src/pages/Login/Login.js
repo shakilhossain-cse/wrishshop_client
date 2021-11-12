@@ -1,8 +1,15 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    loginUser(data.email, data.password)
+  };
   return (
     <div className="my-5 py-5">
       <div className="w-50 mx-auto border p-5">

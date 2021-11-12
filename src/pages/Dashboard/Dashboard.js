@@ -1,9 +1,11 @@
 import React from "react";
 import { Col, Container, ListGroup, Row } from "react-bootstrap";
 import {Switch,Route, Link, useRouteMatch } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import ShowItem from "./ShowItem/ShowItem";
 
 const Dashboard = () => {
+  const {user} = useAuth()
   let { path, url } = useRouteMatch();
   return (
     <Container className="my-5">
@@ -33,7 +35,7 @@ const Dashboard = () => {
         <Col md={9}>
           <Switch>
             <Route exact path={path}>
-              <h3 className="text-center">Hello Shakil</h3>
+              <h3 className="text-center">Hello {user.displayName }</h3>
             </Route>
             <Route path={`${path}/:Topic`}>
               <ShowItem />
@@ -44,5 +46,4 @@ const Dashboard = () => {
     </Container>
   );
 };
-// console.log(topicId);
 export default Dashboard;
