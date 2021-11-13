@@ -20,27 +20,24 @@ const Register = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" placeholder="Enter Name" {...register("name", { required: true })} />
-            {errors.name && <span className="text-danger">This field is required</span>}
+            {errors.name && <span className="text-danger">Name field is required</span>}
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" {...register("email", { required: true })}  />
-            {errors.email && <span className="text-danger">This field is required</span>}
+            {errors.email && <span className="text-danger">Email field is required</span>}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" {...register("password", { required: true })}  />
-            {errors.password && <span className="text-danger">This field is required</span>}
+            <Form.Control type="password" placeholder="Password" {...register("password", { required: true,minLength: 6 })}  />
+            {errors.password && <span className="text-danger">Password field is required And Must Have 6 Chrater</span>}
           </Form.Group>
           <p>
             Already Have A Account?<Link to="/login">Login</Link>
           </p>
           <Button variant="dark" className="w-100" type="submit">
             Register
-          </Button>
-          <Button variant="danger" className="w-100 my-3" type="submit">
-            Register with Google
           </Button>
         </Form>
       </div>

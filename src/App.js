@@ -9,6 +9,7 @@ import Register from "./pages/Register/Register";
 import Footer from "./pages/shared/Footer/Footer";
 import Header from "./pages/shared/Header/Header";
 import Watches from "./pages/Watches/Watches";
+import PrivetRoute from "./Routes/PrivetRoute";
 
 function App() {
   return (
@@ -20,8 +21,12 @@ function App() {
           <Route path="/watches" component={Watches} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/pharches" component={Pharches} />
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivetRoute path="/pharches/:id">
+            <Pharches />
+          </PrivetRoute>
+          <PrivetRoute path="/dashboard">
+            <Dashboard />
+          </PrivetRoute>
         </Switch>
         <Footer />
       </Router>

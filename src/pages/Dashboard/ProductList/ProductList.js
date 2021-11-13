@@ -1,8 +1,31 @@
-import React from "react";
-import { Table, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Table, Button, Spinner } from "react-bootstrap";
 import { BsFillTrashFill } from "react-icons/bs";
 
 const ProductList = () => {
+  const [getAllProducts, setGetAllProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => setGetAllProducts(data));
+  }, []);
+
+  const deleteHandelerFromUi = (item) => {
+    const removeItem = getAllProducts.filter((product) => product._id != item);
+    setGetAllProducts(removeItem);
+  };
+  const deleteHandeler = (id) => {
+    const confirmation = window.confirm("Are you sure to delete??");
+    if (confirmation) {
+      deleteHandelerFromUi(id);
+      fetch(`http://localhost:5000/product/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json)
+        .then((data) => alert("Your Data Delete Successfully"));
+    }
+  };
+  
   return (
     <Table striped bordered hover>
       <thead>
@@ -14,20 +37,27 @@ const ProductList = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>$110</td>
-          <td>
-            <Button variant="danger"><BsFillTrashFill/></Button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
+        {getAllProducts.length ? (
+          getAllProducts.map((product, index) => (
+            <tr key={product._id}>
+              <td>{index + 1}</td>
+              <td>{product.name}</td>
+              <td>${product.price}</td>
+              <td>
+                <Button
+                  variant="danger"
+                  onClick={() => deleteHandeler(product._id)}
+                >
+                  <BsFillTrashFill />
+                </Button>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <div className="my-4">
+            <Spinner animation="border" />
+          </div>
+        )}
       </tbody>
     </Table>
   );
