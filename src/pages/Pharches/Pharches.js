@@ -9,7 +9,7 @@ const Pharches = () => {
   const [getParches, setGetParches] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/pharches/${id}`)
+    fetch(`https://vast-citadel-29612.herokuapp.com/pharches/${id}`)
       .then((res) => res.json())
       .then((data) => setGetParches(data))
       .catch(() => {
@@ -17,7 +17,7 @@ const Pharches = () => {
       });
   }, []);
 
-  const buyHandeler = e => {
+  const buyHandeler = (e) => {
     e.preventDefault();
     const detiles = {
       userEmail: user.email,
@@ -27,7 +27,7 @@ const Pharches = () => {
       image: getParches.image,
       status: 1,
     };
-    fetch("http://localhost:5000/pharches", {
+    fetch("https://vast-citadel-29612.herokuapp.com/pharches", {
       method: "POST",
       headers: {
         "content-type": "application/json",

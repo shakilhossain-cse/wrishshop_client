@@ -10,7 +10,7 @@ const Product = ({ product }) => {
         <Card.Img variant="top" src={product.image} />
         <Card.Body className="text-center">
           <Card.Title>{product.name}</Card.Title>
-          <Card.Text>This is a longer card with supporting</Card.Text>
+          <Card.Text>{product.describtion.slice(0, 100)}</Card.Text>
           <h4>${product.price}</h4>
           <Link to={`/pharches/${product._id}`}>
             <Button className="btn btn-outline-dark">Buy Now</Button>

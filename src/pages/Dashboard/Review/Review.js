@@ -8,7 +8,9 @@ const Review = () => {
   console.log(user);
   const rating = useRef();
   const review = useRef();
-  const imageUrl = user.photoURL || 'https://cdn1.vectorstock.com/i/1000x1000/19/45/user-avatar-icon-sign-symbol-vector-4001945.jpg'
+  const imageUrl =
+    user.photoURL ||
+    "https://cdn1.vectorstock.com/i/1000x1000/19/45/user-avatar-icon-sign-symbol-vector-4001945.jpg";
   const reviewHandeler = (e) => {
     e.preventDefault();
     const data = {
@@ -17,7 +19,7 @@ const Review = () => {
       userName: user.displayName,
       userImg: imageUrl,
     };
-    fetch("http://localhost:5000/review", {
+    fetch("https://vast-citadel-29612.herokuapp.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -10,6 +10,7 @@ import Footer from "./pages/shared/Footer/Footer";
 import Header from "./pages/shared/Header/Header";
 import Watches from "./pages/Watches/Watches";
 import PrivetRoute from "./Routes/PrivetRoute";
+import GuestRoute from "./Routes/GuestRoute";
 
 function App() {
   return (
@@ -19,8 +20,12 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/watches" component={Watches} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <GuestRoute path="/login">
+            <Login />
+          </GuestRoute>
+          <GuestRoute path="/register">
+            <Register />
+          </GuestRoute>
           <PrivetRoute path="/pharches/:id">
             <Pharches />
           </PrivetRoute>

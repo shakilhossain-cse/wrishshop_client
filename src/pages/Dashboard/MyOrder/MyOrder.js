@@ -7,7 +7,7 @@ const MyOrder = () => {
   const { user } = useAuth();
   const [DisplayOrder, setDisplayOrder] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/userorder/${user.email}`)
+    fetch(`https://vast-citadel-29612.herokuapp.com/userorder/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setDisplayOrder(data);
@@ -22,7 +22,7 @@ const MyOrder = () => {
     const confirmation = window.confirm("Are you sure to delete??");
     if (confirmation) {
       deleteHandelerFromUi(id);
-      fetch(`http://localhost:5000/order/${id}`, {
+      fetch(`https://vast-citadel-29612.herokuapp.com/order/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json)
@@ -48,7 +48,7 @@ const MyOrder = () => {
               {order.status === 1 ? (
                 <span className="badge bg-warning text-dark">Panding</span>
               ) : (
-                <span className="badge bg-success text-dark">Deliverd</span>
+                <span className="badge bg-success text-white">Deliverd</span>
               )}
             </td>
             {order.status === 1 && (

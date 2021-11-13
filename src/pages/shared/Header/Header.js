@@ -34,9 +34,11 @@ const Header = () => {
             <Nav.Link as={NavLink} to="/watches">
               Watches
             </Nav.Link>
-            <Nav.Link as={NavLink} to="/dashboard">
-              Dashboard
-            </Nav.Link>
+            {user.email && (
+              <Nav.Link as={NavLink} to="/dashboard">
+                Dashboard
+              </Nav.Link>
+            )}
             {!user.email && (
               <Nav.Link as={NavLink} to="/login">
                 Login

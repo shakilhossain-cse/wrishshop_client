@@ -10,7 +10,7 @@ const Watch = ({ watch }) => {
         <Card.Img variant="top" src={watch.image} />
         <Card.Body className="text-center">
           <Card.Title>{watch.name}</Card.Title>
-          <Card.Text>{watch.describtion}</Card.Text>
+          <Card.Text>{watch.describtion.slice(0, 170)}</Card.Text>
           <h4>${watch.price}</h4>
           <Link to={`/pharches/${watch._id}`}>
             <Button className="btn btn-outline-dark">Buy Now</Button>

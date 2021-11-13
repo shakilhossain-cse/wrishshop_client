@@ -5,7 +5,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 const ProductList = () => {
   const [getAllProducts, setGetAllProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://vast-citadel-29612.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setGetAllProducts(data));
   }, []);
@@ -18,14 +18,14 @@ const ProductList = () => {
     const confirmation = window.confirm("Are you sure to delete??");
     if (confirmation) {
       deleteHandelerFromUi(id);
-      fetch(`http://localhost:5000/product/${id}`, {
+      fetch(`https://vast-citadel-29612.herokuapp.com/product/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json)
         .then((data) => alert("Your Data Delete Successfully"));
     }
   };
-  
+
   return (
     <Table striped bordered hover>
       <thead>

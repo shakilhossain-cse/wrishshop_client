@@ -7,11 +7,12 @@ import AddProduct from "./AddProduct/AddProduct";
 import MakeADmin from "./MakeAdmin/MakeADmin";
 import AllOrder from "./AllOrder/AllOrder";
 import MyOrder from "./MyOrder/MyOrder";
+import Pay from "./Pay/Pay";
 import ProductList from "./ProductList/ProductList";
 import AdminRoute from "../../Routes/AdminRoute";
 
 const Dashboard = () => {
-  const { user, admin } = useAuth();
+  const { user, admin,logOutUser } = useAuth();
 
   let { path, url } = useRouteMatch();
   return (
@@ -36,11 +37,17 @@ const Dashboard = () => {
               </>
             )}
 
+            <ListGroup.Item as={Link} to={`${url}/pay`}>
+              Pay
+            </ListGroup.Item>
             <ListGroup.Item as={Link} to={`${url}/myorder`}>
               My Order
             </ListGroup.Item>
             <ListGroup.Item as={Link} to={`${url}/review`}>
               Review
+            </ListGroup.Item>
+            <ListGroup.Item onClick={()=>logOutUser()} style={{cursor:"pointer"}}>
+              Logout
             </ListGroup.Item>
           </ListGroup>
         </Col>
@@ -62,6 +69,9 @@ const Dashboard = () => {
             <AdminRoute path={`${path}/allorders`}>
               <AllOrder />
             </AdminRoute>
+            <Route path={`${path}/pay`}>
+              <Pay />
+            </Route>
             <Route path={`${path}/myorder`}>
               <MyOrder />
             </Route>
