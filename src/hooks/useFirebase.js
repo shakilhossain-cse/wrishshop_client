@@ -84,14 +84,14 @@ const useFirebase = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`https://vast-citadel-29612.herokuapp.com/user/${user.email}`)
+    fetch(`https://wrishshop.onrender.com/user/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://vast-citadel-29612.herokuapp.com/user", {
+    fetch("https://wrishshop.onrender.com/user", {
       method: method,
       headers: {
         "content-type": "application/json",

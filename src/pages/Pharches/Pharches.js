@@ -9,7 +9,7 @@ const Pharches = () => {
   const [getParches, setGetParches] = useState({});
 
   useEffect(() => {
-    fetch(`https://vast-citadel-29612.herokuapp.com/pharches/${id}`)
+    fetch(`https://wrishshop.onrender.com/pharches/${id}`)
       .then((res) => res.json())
       .then((data) => setGetParches(data))
       .catch(() => {
@@ -27,7 +27,7 @@ const Pharches = () => {
       image: getParches.image,
       status: 1,
     };
-    fetch("https://vast-citadel-29612.herokuapp.com/pharches", {
+    fetch("https://wrishshop.onrender.com/pharches", {
       method: "POST",
       headers: {
         "content-type": "application/json",

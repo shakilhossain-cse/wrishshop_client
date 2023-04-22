@@ -5,7 +5,7 @@ import { BsFillTrashFill, BsCheckLg } from "react-icons/bs";
 const AllOrder = () => {
   const [DisplayOrder, setDisplayOrder] = useState([]);
   useEffect(() => {
-    fetch(`https://vast-citadel-29612.herokuapp.com/allorder`)
+    fetch(`https://wrishshop.onrender.com/allorder`)
       .then((res) => res.json())
       .then((data) => {
         setDisplayOrder(data);
@@ -22,7 +22,7 @@ const AllOrder = () => {
 
   const handelStatus = (id) => {
     const user = { id };
-    fetch(`https://vast-citadel-29612.herokuapp.com/order/status/`, {
+    fetch(`https://wrishshop.onrender.com/order/status/`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -45,7 +45,7 @@ const AllOrder = () => {
     const confirmation = window.confirm("Are you sure to delete??");
     if (confirmation) {
       deleteHandelerFromUi(id);
-      fetch(`https://vast-citadel-29612.herokuapp.com/order/${id}`, {
+      fetch(`https://wrishshop.onrender.com/order/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json)

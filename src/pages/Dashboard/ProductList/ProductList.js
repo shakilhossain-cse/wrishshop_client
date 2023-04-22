@@ -5,7 +5,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 const ProductList = () => {
   const [getAllProducts, setGetAllProducts] = useState([]);
   useEffect(() => {
-    fetch("https://vast-citadel-29612.herokuapp.com/products")
+    fetch("https://wrishshop.onrender.com/products")
       .then((res) => res.json())
       .then((data) => setGetAllProducts(data));
   }, []);
@@ -18,7 +18,7 @@ const ProductList = () => {
     const confirmation = window.confirm("Are you sure to delete??");
     if (confirmation) {
       deleteHandelerFromUi(id);
-      fetch(`https://vast-citadel-29612.herokuapp.com/product/${id}`, {
+      fetch(`https://wrishshop.onrender.com/product/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json)

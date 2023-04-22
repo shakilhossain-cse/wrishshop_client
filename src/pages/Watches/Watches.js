@@ -6,7 +6,7 @@ import Watch from "./Watch/Watch";
 const Watches = () => {
   const [watches, setWatches] = useState([]);
   useEffect(() => {
-    fetch("https://vast-citadel-29612.herokuapp.com/products")
+    fetch("https://wrishshop.onrender.com/products")
       .then((res) => res.json())
       .then((data) => setWatches(data));
   }, []);

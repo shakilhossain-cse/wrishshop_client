@@ -7,7 +7,7 @@ import Product from "./Product/Product";
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://vast-citadel-29612.herokuapp.com/products")
+    fetch("https://wrishshop.onrender.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -20,10 +20,9 @@ const Products = () => {
         </Link>
       </div>
       <Row xs={1} sm={2} md={3} className="g-4">
-        {
-          products.slice(0, 6).map(product => <Product product={product} />)
-        }
-        
+        {products.slice(0, 6).map((product) => (
+          <Product product={product} />
+        ))}
       </Row>
     </Container>
   );

@@ -19,7 +19,7 @@ const Review = () => {
       userName: user.displayName,
       userImg: imageUrl,
     };
-    fetch("https://vast-citadel-29612.herokuapp.com/review", {
+    fetch("https://wrishshop.onrender.com/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

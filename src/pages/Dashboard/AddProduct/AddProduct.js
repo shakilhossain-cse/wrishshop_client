@@ -17,7 +17,7 @@ const AddProduct = () => {
       describtion: describtion.current.value,
     };
 
-    fetch("https://vast-citadel-29612.herokuapp.com/product", {
+    fetch("https://wrishshop.onrender.com/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",
